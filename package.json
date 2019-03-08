@@ -1,0 +1,18 @@
+{
+  "name": "express-test",
+  "version": "1.0.0",
+  "description": "express-playground",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "dev": "node app.js",
+    "test": "",
+    "build": ""
+  },
+  "devDependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "netlify-lambda": "^0.4.0",
+    "serverless-http": "^1.6.0"
+  }
+}
