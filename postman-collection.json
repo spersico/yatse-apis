@@ -1,0 +1,325 @@
+{
+	"info": {
+		"_postman_id": "081fd5a6-fb50-4d64-a10d-b754c91c241e",
+		"name": "YATSE-APIS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Logout User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"warning": "Value contains invalid newline characters.",
+								"key": "Cookie",
+								"value": "Authorization=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTA5NDBjMjkzYTc1ZjQwZDgxYTJkMTQiLCJpYXQiOjE1Nzc2NzIxNDAsImV4cCI6MTU3NzY3NTc0MH0.0K4owW7jLI0zRcYOcEfCM2i7XaTRwWkEkeyegATt9PI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:5000/auth/logout",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"flyster93@gmail.com\",\n    \"password\": \"password1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/auth/login",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"flyster93@gmail.com\",\n    \"name\": \"Homero Simpson\",\n    \"password\": \"password1234\",\n    \"address\": {\n        \"street\": \"Av.Siempre Viva 123\",\n        \"city\": \"Springfield\",\n        \"country\":\"Amerrica\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/users",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Posts",
+			"item": [
+				{
+					"name": "Delete Post",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"warning": "Value contains invalid newline characters.",
+								"key": "Cookie",
+								"value": "Authorization=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTA5NDBjMjkzYTc1ZjQwZDgxYTJkMTQiLCJpYXQiOjE1Nzc2NzAwODQsImV4cCI6MTU3NzY3MzY4NH0.d3YsXzTN9-U1Z_52iu7dVt-RJiVQsR_En-acZl321CE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:5000/posts/5e0944368031b342f3445887",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"posts",
+								"5e0944368031b342f3445887"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch Post",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Cookie",
+								"value": "Authorization=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTA5NmEwNWU1NDMwOTU3OTA5NGQzYjYiLCJpYXQiOjE1Nzc2NzUyNjksImV4cCI6MTU3NzY3ODg2OX0.U8fgOPBc-g1v40ghVV0PPQdisKPcUqZP_8pTHsRMaaw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"author\": \"5e096a05e54309579094d3b6\",\n    \"title\": \"Do Androids Dream of Electric Sheep? V2.3\",\n    \"content\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/posts/5e096ac7e54309579094d3b9",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"posts",
+								"5e096ac7e54309579094d3b9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Post",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"warning": "Value contains invalid newline characters.",
+								"key": "Cookie",
+								"value": "Authorization=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTA5NmEwNWU1NDMwOTU3OTA5NGQzYjYiLCJpYXQiOjE1Nzc2NzUyNjksImV4cCI6MTU3NzY3ODg2OX0.U8fgOPBc-g1v40ghVV0PPQdisKPcUqZP_8pTHsRMaaw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"author\": \"5e096a05e54309579094d3b6\",\n    \"title\": \"Do Androids Dream of Electric Sheep?\",\n    \"content\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/posts",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List All Posts",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:5000/posts",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Post By Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:5000/posts/5e096ac7e54309579094d3b9",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"posts",
+								"5e096ac7e54309579094d3b9"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "List an user posts",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"warning": "Value contains invalid newline characters.",
+						"key": "Cookie",
+						"value": "Authorization=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTA5NmEwNWU1NDMwOTU3OTA5NGQzYjYiLCJpYXQiOjE1Nzc2NzUyNjksImV4cCI6MTU3NzY3ODg2OX0.U8fgOPBc-g1v40ghVV0PPQdisKPcUqZP_8pTHsRMaaw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:5000/users/5e096a05e54309579094d3b6/posts",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"users",
+						"5e096a05e54309579094d3b6",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
