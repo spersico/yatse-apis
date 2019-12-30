@@ -9,6 +9,7 @@ export interface User {
   email: string;
   password: string;
   address?: Address;
+  salt: string;
 }
 
 export class UserDTO {
@@ -31,5 +32,6 @@ const userSchema = new Schema({
   email: String,
   name: String,
   password: String,
+  salt: String,
 });
 export const userModel = model<User & Document>('User', userSchema);

@@ -7,19 +7,16 @@
   "author": "Santiago Persico",
   "license": "MIT",
   "engines": {
-    "node": "10.x || 12.x"
+    "node": "12.x"
   },
   "scripts": {
     "dev": "ts-node-dev ./src/server.ts",
-    "prebuild": "npm run lint",
     "build": "tsc",
-    "prestart": "npm run build",
     "start": "NODE_ENV=production node ./dist/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "tslint -p tsconfig.json -c tslint.json --fix"
   },
   "dependencies": {
-    "bcrypt": "^3.0.7",
     "body-parser": "^1.19.0",
     "class-transformer": "^0.2.3",
     "class-validator": "^0.11.0",

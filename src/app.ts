@@ -24,7 +24,7 @@ class App {
 
   public listen() {
     this.app.listen(process.env.PORT, () => {
-      console.log(`${process.env.NODE_ENV}: API ready on port ${process.env.PORT}`);
+      console.log(`${process.env.NODE_ENV.toUpperCase()}: API running on port ${process.env.PORT}`);
     });
   }
 

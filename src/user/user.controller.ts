@@ -1,4 +1,3 @@
-import { hash } from 'bcrypt';
 import { UnauthorizedException } from '../exceptions/AuthExceptions';
 
 import { NextFunction, Request, Response, Router } from 'express';
@@ -9,7 +8,7 @@ import { postModel } from '../post/post';
 import { UserDTO, userModel } from '../user/user';
 
 import { UserWithPreExistantEmailException } from '../exceptions/UserExceptions';
-import { createUserSessionCookie } from '../utils/jwtCookie';
+import { createUserSessionCookie, hashPassword } from '../utils/jwtCookie';
 import { defaultModifier, userModifier } from '../utils/mongooseToJsonModifier';
 import validationMiddleware from '../utils/validation.middleware';
 
@@ -35,8 +34,8 @@ class UserController implements Controller {
       if (await this.user.exists({ email: userData.email })) {
         throw new UserWithPreExistantEmailException(userData.email);
       }
-      userData.password = await hash(userData.password, 10);
-      const createdUser = (await this.user.create(userData)).toJSON(userModifier);
+      const { passwordHash: password, passwordSalt: salt } = await hashPassword(userData.password);
+      const createdUser = (await this.user.create({ ...userData, password, salt })).toJSON(userModifier);
       response.setHeader('Set-Cookie', [createUserSessionCookie(createdUser)]);
       response.send(createdUser);
     } catch (error) {

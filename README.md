@@ -10,19 +10,20 @@ The [_mongo_](https://github.com/spersico/yatse-apis/tree/mongo) branch contains
 
 ## Installation
 
+I'm assuming that, for the mongo version you've got a mongoDB instance running on port 27017, and for postgress (TODO)... 
+
 ```bash
-yarn
+ npm i
 ```
 
-## Build
+## Build & run
 
 ```bash
-yarn build
+ npm run build & npm start
 ```
 
-
-## Running
+## Run in dev mode
 
 ```bash
-yarn dev
+ npm run dev
 ```

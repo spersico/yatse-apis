@@ -1,5 +1,3 @@
-import { compare } from 'bcrypt';
-
 import validationMiddleware from '../utils/validation.middleware';
 
 import { WrongCredentialsException } from '../exceptions/AuthExceptions';
@@ -7,7 +5,7 @@ import { WrongCredentialsException } from '../exceptions/AuthExceptions';
 import { NextFunction, Request, Response, Router } from 'express';
 import { Controller } from '../interfaces';
 import { userModel } from '../user/user';
-import { createUserSessionCookie } from '../utils/jwtCookie';
+import { createUserSessionCookie, validatePassword } from '../utils/jwtCookie';
 import { defaultModifier } from '../utils/mongooseToJsonModifier';
 import LoginDTO from './logIn';
 
@@ -31,10 +29,10 @@ class AuthenticationController implements Controller {
       const logInData: LoginDTO = request.body;
       const userFound = (await this.user.findOne({ email: logInData.email })).toJSON(defaultModifier);
       if (userFound) {
-        const isPasswordMatching = await compare(logInData.password, userFound.password);
+        const isPasswordMatching = await validatePassword(logInData.password, userFound.password, userFound.salt);
         if (isPasswordMatching) {
           response.setHeader('Set-Cookie', [createUserSessionCookie(userFound)]);
-          response.send({ ...userFound, password: undefined });
+          response.send({ ...userFound, password: undefined, salt: undefined });
         } else {
           next(new WrongCredentialsException());
         }
