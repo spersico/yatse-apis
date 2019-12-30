@@ -6,7 +6,7 @@ This repository was made initialy following a [Express Typescript tutorial](http
 
 The [_mongo_](https://github.com/spersico/yatse-apis/tree/mongo) branch contains the version with **MongoDB**.
 
-TODO: The [_postgres_](https://github.com/spersico/yatse-apis/tree/postgres) branch contains the version with **PostgreSQL**.
+[TODO](https://github.com/spersico/yatse-apis/issues): The [_postgres_](https://github.com/spersico/yatse-apis/tree/postgres) branch contains the version with **PostgreSQL**.
 
 ## Installation
 
